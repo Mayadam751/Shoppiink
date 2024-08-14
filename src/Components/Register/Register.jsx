@@ -1,10 +1,25 @@
+import axios from 'axios';
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'
 
 export default function Register() {
-  function register(values) {
+  let navigate = useNavigate()
+  let [isLoading, setIsLoading] = useState(false)
+  let [ErrorMessage, setErrorMessage] = useState("")
+  async function register(values) {
     console.log(values);
+    setIsLoading(true)
+    setErrorMessage("")
+    let { data } = await axios.post('http://localhost:5000/user/signup',values).catch((err) => {
+      console.log(err);
+      setErrorMessage(err.response.data.message)
+      setIsLoading(false)
+    })
+    console.log(data);
+    setIsLoading(false)
+    navigate('/login')
   }
 
   let validationSchema = Yup.object({
@@ -13,7 +28,7 @@ export default function Register() {
       .max(20, 'Max length must be less than 20 characters')
       .required('Name is required'),
     email: Yup.string()
-      .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,'Invalid email format')
+      .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Invalid email format')
       .required('Email is required'),
     password: Yup.string()
       .required('Password is required')
@@ -40,7 +55,7 @@ export default function Register() {
   return (
     <>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-50 via-orange-200 to-pink-200">
-        <div className="bg-white  rounded shadow-lg">
+        <div className="bg-white p-32  rounded shadow-lg">
           <h2 className="text-2xl font-semibold mb-6">Register Now</h2>
           <form className="max-w-sm mx-auto" onSubmit={formik.handleSubmit}>
             <div className="mb-5">
@@ -66,7 +81,7 @@ export default function Register() {
             <div className="mb-5">
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
               <input
-              onBlur={formik.handleBlur}
+                onBlur={formik.handleBlur}
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 type="email"
@@ -86,7 +101,7 @@ export default function Register() {
             <div className="mb-5">
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Your Password</label>
               <input
-              onBlur={formik.handleBlur}
+                onBlur={formik.handleBlur}
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 type="password"
@@ -104,9 +119,9 @@ export default function Register() {
             </div>
 
             <div className="mb-5">
-              <label htmlFor="rePassword"  className="block mb-2 text-sm font-medium text-gray-900">Re-enter Password</label>
+              <label htmlFor="rePassword" className="block mb-2 text-sm font-medium text-gray-900">Re-enter Password</label>
               <input
-              onBlur={formik.handleBlur}
+                onBlur={formik.handleBlur}
                 value={formik.values.rePassword}
                 onChange={formik.handleChange}
                 type="password"
@@ -122,8 +137,12 @@ export default function Register() {
                 </div>
               ) : null}
             </div>
-
-            <button
+            {ErrorMessage? (
+              <div className="bg-red-500 text-white p-4">
+                {ErrorMessage}
+              </div>
+            ) : null}
+            <button disabled={isLoading}
               type="submit"
               className="text-white bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
             >

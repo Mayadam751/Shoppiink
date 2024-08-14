@@ -1,10 +1,28 @@
+import axios from 'axios';
 import { useFormik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import * as Yup from 'yup';
 
 export default function Login() {
-  function login(values) {
+ 
+  let navigate = useNavigate()
+  let [isLoading, setIsLoading] = useState(false)
+  let [ErrorMessage, setErrorMessage] = useState("")
+  async function login(values) {
     console.log(values);
+    setIsLoading(true)
+    setErrorMessage("")
+    let { data } = await axios.post('http://localhost:5000/user/signin',values)
+    .catch((err) => {
+      console.log(err);
+      setErrorMessage(err.response.data.message)
+      setIsLoading(false)
+    })
+    console.log(data);
+    setIsLoading(false)
+    navigate('/login')
   }
 
   let validationSchema = Yup.object({
@@ -75,7 +93,7 @@ export default function Login() {
               ) : null}
             </div>
 
-            <button type="submit" className="text-white bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Login</button>
+            <button disabled={isLoading} type="submit" className="text-white bg-red-300 hover:bg-red-400 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Login</button>
           </form>
         </div>
       </div>
