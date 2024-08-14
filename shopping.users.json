@@ -1,0 +1,94 @@
+[{
+  "_id": {
+    "$oid": "66aea7f1decd3960eadbd0a8"
+  },
+  "name": "user1",
+  "email": "ay7aga@ayhaga.com",
+  "varified": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2024-08-03T21:58:09.312Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T21:58:09.312Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66aeac7664e07b2de7133850"
+  },
+  "name": "user2",
+  "email": "ay7aga@ayhaga.co",
+  "varified": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2024-08-03T22:17:26.512Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-03T22:17:26.512Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66afa7f508b49d6ce6310204"
+  },
+  "name": "user3",
+  "email": "ay7aga@ayhaga.comm",
+  "password": "$2b$08$r4DPUwDQ.4gfByg8XV6H5OrW0z5T27764Em/dgHNpj6i1Sjrryy/m",
+  "varified": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2024-08-04T16:10:29.030Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-04T16:10:29.030Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b0e0e1b405d66d8beb064a"
+  },
+  "name": "user3",
+  "email": "ay7aga@ayhaga.comma",
+  "password": "$2b$08$v0M811OcinkrNW9uZPkA0.p8BxJ9UYndsisMTR1JzimseOfwwNlsa",
+  "varified": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2024-08-05T14:25:37.453Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-05T14:25:37.453Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b0e11ae237dffc097dc531"
+  },
+  "name": "user3",
+  "email": "ay7aga@ayhaga.o",
+  "password": "$2b$08$sOHBthZ390hyLeXNVFqFBealpXjH0EW2lhKX.OydOj8KpP3W2.wuG",
+  "varified": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2024-08-05T14:26:34.180Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-05T14:26:34.180Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66b0fc7d2285990ff77a5a38"
+  },
+  "name": "mayada",
+  "email": "dsds@mm.com",
+  "password": "$2b$08$KDQ5.b04rMFk3bIs0ne1xe/D9trd056bL9EQxm27/pqH3Jiq2G/Xq",
+  "varified": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2024-08-05T16:23:25.243Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-05T16:23:25.243Z"
+  }
+}]

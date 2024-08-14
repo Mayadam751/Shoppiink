@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "63a59918-1244-4ea9-aaea-c23b480e5f72",
+		"name": "Shopping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31071653",
+		"_collection_link": "https://universal-eclipse-727179.postman.co/workspace/Backend-(nodeJS)-Route~70816ccd-4940-4258-b140-5f1c13edcf12/collection/31071653-63a59918-1244-4ea9-aaea-c23b480e5f72?action=share&source=collection_link&creator=31071653"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"user3\",\r\n    \"email\": \"ay7aga@ayhaga.comm\",\r\n    \"password\": \"123da\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/user/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"ay7aga@ayhaga.commmm\",\r\n    \"password\": \"123da8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/user/signin"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
